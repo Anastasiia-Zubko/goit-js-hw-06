@@ -19,10 +19,11 @@ const images = [
   },
 ];
 const imagesList = document.querySelector(".gallery");
-images.forEach((el) => {
-  imagesList.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src="${el.url}" alt="${el.alt}" width="150" height= "150"/></li>,`)
-});
+
+const gallery = images
+  .map((el) => `<li class="gallery__item"><img src="${el.url}" alt="${el.alt}" width="150" height= "150"/></li>`)
+  .join("");
+
+imagesList.insertAdjacentHTML("afterbegin", gallery);
 imagesList.style.display = "flex";
 imagesList.style.flexDirection = "row";

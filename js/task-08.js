@@ -9,15 +9,16 @@ const form = document.querySelector('.login-form');
 form.addEventListener('submit', event => {
     event.preventDefault();
     const formElements = event.currentTarget.elements;
-    const formData = new FormData(event.currentTarget);
+    const email = formElements.email.value;
+    const password = formElements.password.value;
 
-    if (formElements.email.value === '' || formElements.password.value === '')
+    if (email === '' || password === '')
     {
         return alert('All the fields should be filled in');
     } else{
-        formData.forEach((value, name) => {
-            console.log(name, value);
-        });
+        const formData = { email, password };
+        console.log(formData);
     }
     event.currentTarget.reset();
-    });
+});
+    
